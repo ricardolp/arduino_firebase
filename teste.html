@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>Continuous Stream Event Trigger Test</title>
+</head>
+
+<body>
+
+   
+    <div style="margin-top:20px">
+        <p>Quarto</p>
+        <button type="button" onclick="setData()" title="Set random number">Acender</button>
+        <button type="button" onclick="delData()" title="Delete data">Apagar</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+
+    <script>
+
+        var projectID = "arduino-fc608-default-rtdb";
+        var apiKey = "AIzaSyBeFHv4z8JxaQjZVMdO70MZK3TDi-g2Ksg";
+        //var apiKey = "CpNZObP6W9Jul61u5XPM9ITzAlVDzvn9oIH0CeQS";
+
+        var config = {
+		  apiKey: "AIzaSyBeFHv4z8JxaQjZVMdO70MZK3TDi-g2Ksg",
+		  authDomain: "arduino-fc608.firebaseapp.com",
+		  databaseURL: "https://arduino-fc608-default-rtdb.firebaseio.com",
+		  projectId: "arduino-fc608",
+		  storageBucket: "arduino-fc608.appspot.com",
+		  messagingSenderId: "337709708755",
+		  appId: "1:337709708755:web:9e3f2790f692557264ab26",
+		  measurementId: "G-E7TB8KCP8Y"
+        };
+
+        firebase.initializeApp(config);
+
+        setData = function () {
+
+                firebase.database().ref('/quarto/luminosidade').set('acesa');
+        }
+
+        delData = function () {
+
+                firebase.database().ref('/quarto/luminosidade').set('apagada');
+        }
+
+
+    </script>
+</body>
+
+</html>
